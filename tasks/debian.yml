@@ -1,0 +1,21 @@
+- name: Ensure dependencies are installed.
+  apt:
+    name:
+      - debian-keyring
+      - debian-archive-keyring
+      - apt-transport-https
+    state: present
+
+- name: Add Caddy apt key.
+  apt_key:
+    url: "{{ caddy_apt_gpg_key }}"
+    id: 65760C51EDEA2017CEA2CA15155B6D79CA56EA34
+    state: present
+  register: add_repository_key
+  ignore_errors: "{{ caddy_apt_ignore_key_error }}"
+
+- name: Add Caddy repository.
+  apt_repository:
+    repo: "{{ caddy_apt_repository }}"
+    state: present
+    update_cache: true

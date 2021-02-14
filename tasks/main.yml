@@ -1,0 +1,11 @@
+---
+# tasks file for caddy
+
+- include_tasks: debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: Install Caddy
+  package:
+    name: "{{  caddy_package }}"
+    state: "{{ caddy_package_state }}"
+  notify: restart caddy

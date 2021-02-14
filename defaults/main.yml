@@ -1,0 +1,16 @@
+---
+# defaults file for caddy
+
+# Packages
+caddy_package: caddy
+caddy_package_state: present
+
+# Service options
+caddy_service_state: started
+caddy_service_enabled: true
+caddy_restart_handler_state: restarted
+
+# Debian
+caddy_apt_repository: deb https://dl.cloudsmith.io/public/caddy/stable/deb/debian any-version main
+caddy_apt_gpg_key: https://dl.cloudsmith.io/public/caddy/stable/gpg.key
+caddy_apt_ignore_key_error: true

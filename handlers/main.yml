@@ -1,0 +1,4 @@
+---
+# handlers file for caddy
+- name: restart caddy
+  service: "name=caddy state={{ caddy_restart_handler_state }}"
