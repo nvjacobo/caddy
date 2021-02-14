@@ -26,4 +26,4 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - caddy
+         - nvjacobo.caddy
