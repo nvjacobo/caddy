@@ -32,9 +32,9 @@ galaxy_info:
    - name: Debian
      versions:
      - buster
-  # - name: SomePlatform
-  #   versions:
-  #   - all
+   - name: Ubuntu
+     versions:
+     - focal
   #   - 1.0
   #   - 7
   #   - 99.99
