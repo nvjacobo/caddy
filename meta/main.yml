@@ -35,7 +35,7 @@ galaxy_info:
    - name: Ubuntu
      versions:
      - focal
-  #   - 1.0
+     - bionic
   #   - 7
   #   - 99.99
 
