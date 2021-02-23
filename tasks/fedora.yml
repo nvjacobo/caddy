@@ -8,6 +8,9 @@
   command: dnf copr enable -y @caddy/caddy
   args:
     warn: no
+  register: dnf_repo_enable
+  changed_when: false
+
 
 - name: Install caddy package
   dnf:
