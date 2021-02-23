@@ -36,6 +36,9 @@ galaxy_info:
      versions:
      - focal
      - bionic
+   - name: Fedora 
+     versions:
+     - 33
   #   - 7
   #   - 99.99
 

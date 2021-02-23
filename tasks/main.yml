@@ -1,6 +1,9 @@
 ---
 # tasks file for caddy
 
+- include_tasks: fedora.yml
+  when: ansible_os_family == 'RedHat'
+
 - include_tasks: debian.yml
   when: ansible_os_family == 'Debian'
 
