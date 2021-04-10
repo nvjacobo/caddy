@@ -5,6 +5,7 @@
       - debian-archive-keyring
       - apt-transport-https
       - gnupg2
+      - curl 
     state: present
 
 - name: Add Caddy apt key.
