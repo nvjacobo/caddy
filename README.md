@@ -6,7 +6,15 @@ An Ansible Role that installs Caddy on Linux.
 Requirements
 ------------
 
-None.
+You need root privileges or sudo user to run this role.
+
+
+
+Supported Operating Systems
+------------
+- Debian bullseye
+- Debian bookworm
+
 
 Role Variables
 --------------
