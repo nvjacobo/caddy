@@ -1,15 +1,15 @@
 - name: Ensure dependencies are installed.
-  apt:
+  ansible.builtin.apt:
     name:
       - debian-keyring
       - debian-archive-keyring
       - apt-transport-https
       - gnupg2
-      - curl 
+      - curl
     state: present
 
 - name: Add Caddy apt key.
-  apt_key:
+  ansible.builtin.apt_key:
     url: "{{ caddy_apt_gpg_key }}"
     id: 65760C51EDEA2017CEA2CA15155B6D79CA56EA34
     state: present
@@ -17,7 +17,7 @@
   ignore_errors: "{{ caddy_apt_ignore_key_error }}"
 
 - name: Add Caddy repository.
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: "{{ caddy_apt_repository }}"
     state: present
     update_cache: true
