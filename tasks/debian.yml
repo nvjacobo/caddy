@@ -8,16 +8,17 @@
       - curl
     state: present
 
-- name: Add Caddy apt key.
-  ansible.builtin.apt_key:
-    url: "{{ caddy_apt_gpg_key }}"
-    id: 65760C51EDEA2017CEA2CA15155B6D79CA56EA34
+- name: Add caddy repository
+  ansible.builtin.deb822_repository:
+    name: caddy
+    uris: "{{ caddy_apt_repository_url }}"
+    signed_by: "{{ caddy_apt_gpg_key }}"
+    components: "{{ caddy_apt_repository_components }}"
+    suites: "{{ caddy_apt_repository_suites }}"
+    types: "{{ caddy_apt_repository_types }}"
     state: present
-  register: add_repository_key
-  ignore_errors: "{{ caddy_apt_ignore_key_error }}"
+    enabled: true
 
-- name: Add Caddy repository.
-  ansible.builtin.apt_repository:
-    repo: "{{ caddy_apt_repository }}"
-    state: present
+- name: Run the equivalent of "apt-get update"
+  ansible.builtin.apt:
     update_cache: true
