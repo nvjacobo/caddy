@@ -1,18 +1,17 @@
 ---
 - name: Install fedora copr plugin (dnf)
-  package:
+  ansible.builtin.package:
     name: dnf-command(copr)
     state: present
 
 - name: Enable caddy repo
-  command: dnf copr enable -y @caddy/caddy
+  ansible.builtin.command: dnf copr enable -y @caddy/caddy
   args:
-    warn: no
+    warn: false
   register: dnf_repo_enable
   changed_when: false
 
-
 - name: Install caddy package
-  dnf:
+  ansible.builtin.dnf:
     name: caddy
     state: present
